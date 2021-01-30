@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>AMY release v1.9.0 - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AMY release v1.9.0";
+    var mkdocs_page_input_path = "releases/v1.9.0.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="..">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AMY release v1.9.0</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/releases/v1.9.0.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="amy-release-v190">AMY release v1.9.0</h1>
+<p>Major AMY <a href="https://github.com/swcarpentry/amy/milestone/35">v1.9.0</a> version was released after <a href="https://github.com/swcarpentry/amy/milestone/36">v1.8.1</a> bugfix version.</p>
+<p>Many thanks to <a href="https://github.com/pbanaszkiewicz">Piotr</a> who focused on code reviews.</p>
+<p>Below, there is a list of changes introduced in <a href="https://github.com/swcarpentry/amy/milestone/35">v1.9.0</a> and <a href="https://github.com/swcarpentry/amy/milestone/36">v1.8.1</a>.</p>
+<h2 id="new-features">New features</h2>
+<ul>
+<li><a href="https://github.com/chrismedrela">Chris</a> added possibility to query historical data (reports) with parameters. </li>
+<li><a href="https://github.com/gvwilson">Greg</a> and <a href="https://github.com/pbanaszkiewicz">Piotr</a> made membership concept first-class objects.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> disabled invoicing.</li>
+<li>Webpage with list of organizations displays current partnership level now, thanks to <a href="https://github.com/chrismedrela">Chris</a>. What's more, it's possible to filter organizations by their current or past partnership level now.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> moved publicly accessible forms (like workshop submission or profile update request) to separate URL endpoint (<code>forms/*</code>).</li>
+<li>Current events list in admin dashboard displays SWC/DC/LC labels now, thanks to <a href="https://github.com/chrismedrela">Chris</a>.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> introduced Django Debug Toolbar which makes development easier.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> extended current search capabilities to training applications.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> improved training request workflow (see <a href="https://github.com/swcarpentry/amy/issues/1004">#1004</a>, <a href="https://github.com/swcarpentry/amy/issues/1007">#1007</a>, <a href="https://github.com/swcarpentry/amy/issues/1050">#1050</a>) and instructor training workflow (see <a href="https://github.com/swcarpentry/amy/issues/976">#976</a>, <a href="https://github.com/swcarpentry/amy/issues/980">#980</a>, <a href="https://github.com/swcarpentry/amy/issues/981">#981</a>).</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> added instructions and clarified how to use bulk add person form.</li>
+<li><a href="https://github.com/gvwilson">Greg</a> added title to organization webpage.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> disabled workshops submission.</li>
+<li><a href="https://github.com/narayanaditya95">Aditya</a> altered choices in partner form.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added privacy consent fields to multiple forms.</li>
+</ul>
+<h2 id="bugfixes">Bugfixes</h2>
+<ul>
+<li><a href="https://github.com/chrismedrela">Chris</a> added hyperlinks in report on all activity.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> fixed a bug resulting in overestimation of number of trainees who became certified instructors. </li>
+<li><a href="https://github.com/narayanaditya95">Aditya</a> fixed a bug in organization bulk import.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> enforced that contribution type (of membership) is required.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> added a field for middle name to training request and instructor profile update forms.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> added a field for notes in instructor profile update.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> fixed a bug resulting in double counting of instructors counts.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> fixed labels of invoice statuses.</li>
+<li><a href="https://github.com/narayanaditya95">Aditya</a> made it possible to import an event using GitHub repository URL in addition to GitHub Pages URL.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> fixed a bug in filtering events by tags.</li>
+<li><a href="https://github.com/chrismedrela">Chris</a> fixed not displayed report plots by migrating to a newer version of <code>d3</code> library.</li>
+<li><a href="https://github.com/narayanaditya95">Aditya</a> improved "cancel" buttons.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed a bug resulting in server error while deleting an airport.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> updated outdated files on production.</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed a bug in event import functionality.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

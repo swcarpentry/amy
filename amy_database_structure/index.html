@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Database Structure - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Database Structure";
+    var mkdocs_page_input_path = "amy_database_structure.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Database Structure</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#events">Events</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#commonly-used-fields">Commonly used fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unused-fields">Unused fields</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#persons">Persons</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#commonly-used-fields_1">Commonly used fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#less-commonly-used-fields">Less commonly used fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-fields">Other fields</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memberships">Memberships</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#organizations">Organizations</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../releases">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Database Structure</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/amy_database_structure.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="primary-tables-in-amy">Primary Tables in AMY</h1>
+<p>The primary tables used in AMY (that will likely appear in every query) are those that store information on events, persons, memberships, and organizations.  Additional tables provide more information about events, persons, memberships, and organizations.</p>
+<h2 id="events">Events</h2>
+<p><code>workshops_event</code> - Primary table for all event data.</p>
+<h3 id="commonly-used-fields">Commonly used fields</h3>
+<ul>
+<li><code>id</code> Sequential, automatically assigned integer</li>
+<li><code>start</code> and <code>end</code> Event start and end dates</li>
+<li><code>slug</code> Event's unique identifier in the form YYYY-MM-DD-sitename</li>
+<li><code>url</code> Event's website. Typically in the format username.github.io/YYYY-MM-DD-sitename (but not required)</li>
+<li><code>host_id</code> An integer representing the Event Host.  This is linked to the <code>workshops_organization</code> table</li>
+<li>Location based fields:<ul>
+<li><code>venue</code> The venue name of the event</li>
+<li><code>address</code> The street address of the event</li>
+<li><code>latitude</code> and <code>longitude</code> Stored as floating point (decimal) numbers</li>
+<li><code>country</code> Stored as the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">two digit country code</a></li>
+</ul>
+</li>
+<li><code>contact</code> A list of email addresses listed as contacts for that workshop</li>
+<li><code>completed</code> A Boolean field to note that all work (including workshop coordination and data entry) is complete.</li>
+<li><code>assigned_to_id</code> The id of the Regional Coordinator or other Carpentries Core Team member assigned to this event. This is linked to the <code>workshops_person</code> table.</li>
+<li><code>language_id</code> The integer id of the language used at the workshop. This is not typically recorded. This is linked to the <code>workshops_language</code> table</li>
+<li><code>open_TTT_applications</code> Used only for instructor training events</li>
+<li><code>adminstrator_id</code> An integer representing the event organizer.  This is linked to the <code>workshops_organization</code> table. Historically any organization could be listed as an administrator. Recent updates to AMY limit this to Data Carpentry, Library Carpentry, Software Carpentry, The Carpentries, or self-organized. This enforcement is at the AMY app level, not at the database level.</li>
+<li><code>reg_key</code> Eventbrite registration key</li>
+</ul>
+<h3 id="unused-fields">Unused fields</h3>
+<ul>
+<li><code>manual_attendance</code> We are no longer collecting or recording attendance</li>
+<li>~~<code>admin_fee</code>~~, ~~<code>invoice_status</code>~~ We are not recording financial data in AMY</li>
+<li><code>repository_last_commit_hash</code>, <code>repository_metadata</code>, <code>metadata_all_changes</code>, <code>metadata_changed</code> Previously used to store metadata changes</li>
+<li><code>instructors_post</code> <code>instructors_pre</code> <code>learners_longterm</code> <code>learners_post</code> <code>learners_pre</code> Previously used to store links to surveys.</li>
+</ul>
+<h2 id="persons">Persons</h2>
+<p><code>workshops_persons</code> - Primary table for all person data. This includes all individuals, regardless of their role with The Carpentries.</p>
+<h3 id="commonly-used-fields_1">Commonly used fields</h3>
+<ul>
+<li><code>id</code> Sequential, automatically assigned integer</li>
+<li><code>personal</code> <code>middle</code> <code>family</code> Three fields to hold the individual's name.  Only <code>personal</code> is required.</li>
+<li><code>email</code> Individual's primary email address. Used for user log in</li>
+<li><code>secondary_email</code> Alternate email address. Optional.</li>
+<li><code>gender</code> Options are <code>Prefer not to say (undisclosed)</code> <code>Female</code> <code>Gender variant / non-conforming</code> <code>Male</code> <code>Other</code>.<ul>
+<li><code>gender_other</code> Text if individual selected <code>Other</code></li>
+</ul>
+</li>
+<li><code>may_contact</code> A boolean field. We may not contact people if this field is false</li>
+<li><code>github</code> Individual's GitHub user id</li>
+<li><code>twitter</code> Individual's Twitter user id</li>
+<li><code>orcid</code> Individual's ORCID iD</li>
+<li><code>url</code> Link to the individual's personal website</li>
+<li><code>airport_id</code> An integer representing the person's self identified nearest.  This is linked to the <code>workshops_airport</code> table</li>
+<li><code>affiliation</code> A free text field representing the person's self identified institutional affliation. This is <strong>not</strong> linked to the <code>workshops_organization</code> table.</li>
+<li><code>occupation</code> A free text field representing the person's self identified occupation</li>
+<li><code>user_notes</code> Free text field with notes from the individual</li>
+<li><code>publish_profile</code> A boolean field that acknowledges permission to publish the individual's profile on our website pages such as the <a href="https://carpentries.org/instructors/">Instructors</a>, <a href="https://carpentries.org/trainers/">Trainers</a>, or <a href="https://carpentries.org/maintainers/">Maintainers</a> pages</li>
+<li><code>country</code> Self identified country of residence. Stored as the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">two digit country code</a>.</li>
+<li><code>lesson_publication_consent</code> Allows individual to consent to publishing their name associated with lesson contributions. Individual can select publication by name, ORCID iD, or GitHub id, or not consent to publishing their name or identity.</li>
+</ul>
+<h3 id="less-commonly-used-fields">Less commonly used fields</h3>
+<ul>
+<li><code>last_login</code> When the user last logged in (regardless of their activity or permissions)</li>
+<li><code>is_superuser</code> Boolean field to note whether the person is a <strong>superuser</strong>, giving them all administrative privileges</li>
+<li><code>created_at</code> Autogenerated timestamp when the record is created</li>
+<li><code>last_updated_at</code> Autogenerated timestamp when the record was last updated</li>
+<li><code>duplication_reviewed_on</code> Timestamp tracking when a <a href="https://amy.carpentries.org/reports/duplicate_persons/">potential duplicate individual's record was reviewed</a></li>
+<li><code>is_active</code> A boolean field.  Only active users are able to log in to AMY</li>
+<li><code>data_privacy_agreement</code> Acknowledges user has read our data policy. Required the first time any user logs in</li>
+</ul>
+<h3 id="other-fields">Other fields</h3>
+<ul>
+<li><code>password</code> Not stored as plain text. Do not use or modify this field for anything.</li>
+</ul>
+<h2 id="memberships">Memberships</h2>
+<p><code>workshops_membership</code> - Stores information about each membership agreement.</p>
+<ul>
+<li><code>id</code> Sequential, automatically assigned integer.</li>
+<li><code>variant</code> Membership type (Gold, Silver, etc.)</li>
+<li><code>agreement_start</code> and <code>agreement_end</code> Membership term start and end dates</li>
+<li><code>contribution_type</code> Financial, Person-days, or Other</li>
+<li><code>workshops_without_admin_fee_per_agreement</code> Integer; number of centrally organized workshops allowed</li>
+<li><code>self_organized_workshops_per_agreement</code> Integer; number of self organized workshops allowed. Typically unused as there is no cap on self-organized workshops</li>
+<li><code>organization_id</code> An integer representing the Member organization.  This is linked to the <code>workshops_organization</code> table</li>
+<li><code>seats_instructor_training</code> Integer; number of seats allowed in instructor training events in the original contract.</li>
+<li><code>additional_instructor_training_seats</code>  Integer; number of additional seats allowed in instructor training events beyond the original contract.</li>
+</ul>
+<h2 id="organizations">Organizations</h2>
+<p><code>workshops_organization</code> - Stores all organizations in AMY.</p>
+<ul>
+<li><code>id</code> Sequential, automatically assigned integer.  This is used by the <code>host_id</code> and <code>administrator_id</code> fields in the <code>workshops_event</code> table, and the <code>organization_id</code> field in the <code>workshops_membership</code> table.</li>
+<li><code>domain</code> Website of the organization</li>
+<li><code>fullname</code> Human friendly name of the organization</li>
+<li><code>country</code> Stored as the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">two digit country code</a></li>
+</ul>
+<h1 id="additional-tables-in-amy">Additional Tables in AMY</h1>
+<h2 id="badges">Badges</h2>
+<ul>
+<li><code>workshops_badge</code> Lists all available badges (SWC/DC/LC Instructor, Trainer, etc.)</li>
+<li><code>workshops_award</code> Connects <code>workshops_badge</code> and <code>workshops_person</code> tables to show what Badges have been awarded to what Persons</li>
+</ul>
+<p>More information to come</p>
+<h2 id="roles">Roles</h2>
+<ul>
+<li><code>workshops_role</code> Lists all available roles (Instructor, Helper, Learner, etc.)</li>
+<li><code>workshops_task</code> Connects <code>workshops_role</code>, <code>workshops_event</code>, and <code>workshops_person</code> tables to show what what Persons have served in what Roles at what Events</li>
+</ul>
+<p>More information to come</p>
+<h2 id="tags">Tags</h2>
+<ul>
+<li><code>workshops_tag</code> Lists all availabe tags for an Event (SWC, DC, LC, Online, Pilot, Circuits, etc.)</li>
+<li><code>workshops_event_tags</code> Connects <code>workshops_tag</code> and <code>workshops_event</code> to show what Tags have been applied to what Events</li>
+</ul>
+<p>More information to come</p>
+<h2 id="training-progress">Training progress</h2>
+<ul>
+<li><code>workshops_trainingrequirement</code>  Lists all available steps towards Instructor certification (Training Event, Discussion, etc.)</li>
+<li><code>workshops_training_progress</code> Connects <code>workshops_trainingrequirement</code> and <code>workshops_person</code> to show what Persons have completed what steps of the checkout process.</li>
+</ul>
+<p>More information to come</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sending_mails/" class="btn btn-neutral float-right" title="Sending Mails">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../procedures/" class="btn btn-neutral" title="Procedures"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../procedures/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sending_mails/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

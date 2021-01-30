@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>AMY release v2.15.0 - 2020-12-06 - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AMY release v2.15.0 - 2020-12-06";
+    var mkdocs_page_input_path = "releases/v2.15.0.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="..">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AMY release v2.15.0 - 2020-12-06</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/releases/v2.15.0.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="amy-release-v2150-2020-12-06">AMY release v2.15.0 - 2020-12-06</h1>
+<p>Major AMY release <a href="https://github.com/carpentries/amy/milestone/74">v2.15.0</a>. This release contains some big changes, like
+"Acknowledge Workshop Request review" manually-triggered emails and documentation
+generated and hosted at project's <a href="https://carpentries.github.io/amy/">GitHub page</a>.
+The new feature for preselecting options on "Accept &amp; create a new event" forms should
+be useful, too.</p>
+<p>Many thanks to our contributors, <a href="https://github.com/marwahaha">Kunal</a> and <a href="https://github.com/staeff">Stephan</a>, for fixing the accordion
+bug, fixing typos and improving our documentation! See below for more details.</p>
+<h2 id="new-features">New features</h2>
+<ul>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added "Acknowledge Workshop Request review" manual emails feature - <a href="https://github.com/carpentries/amy/pull/1712">#1712</a></li>
+<li><a href="https://github.com/staeff">Stephan</a> added documentation generation commands, and improved the documentation accessibility - <a href="https://github.com/carpentries/amy/pull/1739">#1739</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added a new "workshop listed on websites" question to WRFs - <a href="https://github.com/carpentries/amy/pull/1741">#1741</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added 2 new fields to Self-Organised Submission form (start &amp; end dates) - <a href="https://github.com/carpentries/amy/pull/1742">#1742</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added a constraint for only allowing "Learner" role on open/member seat tasks - <a href="https://github.com/carpentries/amy/pull/1743">#1743</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> added automatic selection of "TTT open application" when TTT tag is selected - <a href="https://github.com/carpentries/amy/pull/1744">#1744</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> extended "Accept &amp; create a new event" form with some automatic preselections - <a href="https://github.com/carpentries/amy/pull/1746">#1746</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> extended "AskForWebsite" email automation action with supporting instructors role - <a href="https://github.com/carpentries/amy/pull/1748">#1748</a></li>
+<li><a href="https://github.com/maneesha">maneesha</a> changed heading on the dashboard to better reflect actual workflows - <a href="https://github.com/carpentries/amy/pull/1751">#1751</a></li>
+<li><a href="https://github.com/maneesha">maneesha</a> added a membership agreement link - <a href="https://github.com/carpentries/amy/pull/1753">#1753</a></li>
+</ul>
+<h2 id="bugfixes">Bugfixes</h2>
+<ul>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed issues reported by CodeQL quality-assurance tool - <a href="https://github.com/carpentries/amy/issues/1713">#1713</a></li>
+<li><a href="https://github.com/marwahaha">Kunal</a> fixed broken accordion component on training request form - <a href="https://github.com/carpentries/amy/pull/1733">#1733</a></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> updated Python Pillow library dependency - <a href="https://github.com/carpentries/amy/pull/1728">#1728</a></li>
+<li><a href="https://github.com/marwahaha">Kunal</a> fixed typo in training request confirmation email - <a href="https://github.com/carpentries/amy/pull/1732">#1732</a></li>
+<li><a href="https://github.com/maneesha">maneesha</a> fixed verbiage on workshop landing page and workshop request form - <a href="https://github.com/carpentries/amy/pull/1735">#1735</a></li>
+<li><a href="https://github.com/maneesha">maneesha</a> changed position where "is workshop public" question is shown at, making it more prominent - <a href="https://github.com/carpentries/amy/pull/1737">#1737</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

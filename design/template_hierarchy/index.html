@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Template Hierarchy - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Template Hierarchy";
+    var mkdocs_page_input_path = "design/template_hierarchy.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Template Hierarchy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#base-templates">Base templates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blocks-available-in-base-template">Blocks available in base template</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#widgets">Widgets</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../releases">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Design &raquo;</li>
+        
+      
+    
+    <li>Template Hierarchy</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/design/template_hierarchy.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="template-hierarchy">Template hierarchy</h1>
+<p>Here's a description of base templates, which almost all the other templates
+inherit from.</p>
+<h2 id="base-templates">Base templates</h2>
+<p>All templates use <a href="https://getbootstrap.com/docs/4.1/layout/overview/">fluid container</a>
+from <a href="https://getbootstrap.com/docs/4.1/">Bootstrap 4.1</a>.</p>
+<p>There are multiple types of views in AMY:</p>
+<ul>
+<li>wide (e.g. 'Dashboard') -- <code>base_nav.html</code>,</li>
+<li>wide with sidebar (e.g. 'All Events') -- <code>base_nav_sidebar.html</code>,</li>
+<li>wide with two content columns (e.g. <code>EventRequest</code> accept view, rarely used) -- <code>base_nav_twocolumn.html</code>.</li>
+</ul>
+<p>These templates all inherit from <code>base.html</code>, which holds the HTML structure,
+includes CSS styles and JS code, displays messages, footer, etc.</p>
+<p>The <code>base_nav.html</code> is nothing more but <code>base.html</code> extended with a navigation.
+Navigation changes depending on user - one navigation bar
+(<code>navigation.html</code>) exists for admin users, a different one
+(<code>navigation_trainee.html</code>) exists for trainees. A correct navigation bar is
+being included in <code>base_nav.html</code>.</p>
+<h2 id="blocks-available-in-base-template">Blocks available in base template</h2>
+<p>Django template blocks used in <code>base.html</code> template:</p>
+<ul>
+<li><code>extrastyle</code> in <code>&lt;head&gt;</code>, when you need to load some additional CSS files or
+  embed styles right into the page,</li>
+<li><code>extrajs</code> in <code>&lt;head&gt;</code>, for loading additional JavaScript files / codes,</li>
+<li><code>navbar</code> used in templates that include a navigation bar,</li>
+<li><code>main</code> with all the main content in case someone really needs to change it
+  (caution: quite a lot is going on in this block, make sure you don't brake
+  it),</li>
+<li><code>leftcolumn</code> for adding a sidebar or a column (used in
+  <code>base_nav_sidebar.html</code> and <code>base_nav_twocolumn.html</code>),</li>
+<li><code>maincolumn</code> for changing main content column grid,</li>
+<li><code>logo</code> used in views that display AMY logo (login page, log out
+  page, password reset, etc.),</li>
+<li><code>title</code> to display <code>&lt;h1&gt;</code> tag with page title,</li>
+<li><code>content</code> for displaying page content.</li>
+</ul>
+<h2 id="widgets">Widgets</h2>
+<p>Additionally there were created widgets to support some of the tedious
+components:</p>
+<ul>
+<li><code>assignment.html</code> displays a dropdown to change filtering events assigned to
+  specific person (user, unassigned, or no filtering),</li>
+<li><code>assignment_modal.html</code> displays a modal "window" on the page; this window
+  is used to select person assigned to specified object,</li>
+<li><code>pagination.html</code> displays a neat button groups split with "..." to not show
+  too much pages at once.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../server_infrastructure/" class="btn btn-neutral float-right" title="Server Infrastructure">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../database_models/" class="btn btn-neutral" title="Database Models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../database_models/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../server_infrastructure/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>AMY release v1.4.0 - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AMY release v1.4.0";
+    var mkdocs_page_input_path = "releases/v1.4.0.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="..">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AMY release v1.4.0</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/releases/v1.4.0.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="amy-release-v140">AMY release v1.4.0</h1>
+<p>Intense month of January is almost behind us, so it's time for new AMY release.</p>
+<p>Three versions have been released since <a href="https://github.com/swcarpentry/amy/milestones/v1.3">v1.3.0</a>: <a href="https://github.com/swcarpentry/amy/milestones/v1.3.1">v1.3.1</a>, <a href="https://github.com/swcarpentry/amy/milestones/v1.3.2">v1.3.2</a>
+(both in separate release notes files) and finally <a href="https://github.com/swcarpentry/amy/milestones/v1.4">v1.4.0</a>.</p>
+<p>Unfortunately, due to the way we have our project laid out on GitHub, some of
+the features implemented for <a href="https://github.com/swcarpentry/amy/milestones/v1.4">v1.4.0</a> before <a href="https://github.com/swcarpentry/amy/milestones/v1.3.2">v1.3.2</a> were included in
+the deployment; I will still put them here, though.</p>
+<p>The biggest highlights of this month are definitely:</p>
+<ul>
+<li>first approach to the new API</li>
+<li>API reports</li>
+<li>merging events.</li>
+</ul>
+<p>There were also some essential features, but not much. In v1.5 there will be
+a lot more.</p>
+<h2 id="data-fixing">Data fixing</h2>
+<p>We had to programmatically fix/complete some of our records:</p>
+<ul>
+<li>historical events on production server were assigned an administering
+  organization (that's the one responsible for taking care of the workshop
+  bureaucracy),</li>
+<li>new DC instructors were added: anyone with a special note or anyone who
+  taught at DC workshop now has a <code>DC instructor</code> badge.</li>
+</ul>
+<h2 id="new-features">New features</h2>
+<ul>
+<li><code>Person</code> model is now able to store person's occupation and ORCID code,</li>
+<li>events can hold links to survey results (pre-workshop for learners and for
+  instructors, post-workshop for learners and for instructors, and long-term
+  for learners),</li>
+<li>API call for getting members list is now for logged in users only, and
+  returns members' usernames too,</li>
+<li>merging events: with option to select fields from either of events, or (in
+  some cases) even to combine them together. The underlying code may be
+  reused to fix persons merging,</li>
+<li>workshop issues page now allows to filter workshops by assigned admin</li>
+<li>move most of reports to the API; 3 reports now present a graph for easy use,
+  1 report was requested to be moved to API, and 1 new report was requested
+  (and <a href="https://github.com/pbanaszkiewicz">Piotr</a> made it in API),</li>
+<li>API: new structure. It's using hyperlinks between resources and allows to
+  view and filter for example people associated with specific events,</li>
+<li>slow tests were fixed (we gained probably around 10s on whole test suite,
+  even though about 10-20 new tests were introduced); now it's time to speed up
+  migrations,</li>
+<li><a href="https://github.com/gvwilson">Greg</a> added two new badges to the database: maintainer and trainer; <a href="https://github.com/pbanaszkiewicz">Piotr</a> made
+  sure to allow for editing badges via Django Admin interface, and also added
+  these new badges to the fake database command,</li>
+<li><a href="https://github.com/gvwilson">Greg</a> also added a new command for getting list of people who should be warned
+  because their instructor training was about to close,</li>
+<li>meanwhile <a href="https://github.com/pbanaszkiewicz">Piotr</a> added a command for displaying report about instructor training
+  completion rates.</li>
+</ul>
+<h2 id="bug-fixes">Bug fixes</h2>
+<ul>
+<li>some fields containing numerical values were switched to other type of fields
+  to prevent slider from appearing; the background for this issue was that
+  when scrolling through a page with form, on MacOSX people would accidentally
+  change values of numerical fields,</li>
+<li>generation of initial revisions was added to the process of creating a fake
+  database for development use,</li>
+<li>some types of events (<code>stalled</code> and <code>unresponsive</code>) were kicked out from
+  debrief lookup,</li>
+<li>some invoice options were changed to remain consistent with the rest.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

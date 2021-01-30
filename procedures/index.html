@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Procedures - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Procedures";
+    var mkdocs_page_input_path = "procedures.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Procedures</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#on-the-end-of-each-milestone">On the End of Each Milestone</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#release-procedure">Release Procedure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-procedure-manual-method">Deployment Procedure - manual method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-procedure-using-ansible">Deployment procedure using Ansible</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../releases">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Procedures</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/procedures.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="procedures">Procedures</h1>
+<h2 id="on-the-end-of-each-milestone">On the End of Each Milestone</h2>
+<ol>
+<li>
+<p>Close milestone using <a href="https://github.com/carpentries/amy/milestones">GitHub UI</a>.</p>
+</li>
+<li>
+<p>Write down release notes and add it to the repository in <code>docs/releases</code> directory.
+    Release notes should have two sections: new features and bugfixes, each one enumerating changes and mentioning their authors.
+    Base your work on the list of all closed pull requests for given milestone, available on GitHub.</p>
+</li>
+<li>
+<p>Follow <a href="#release-procedure">Release Procedure</a>.</p>
+</li>
+<li>
+<p>Follow Deployment Procedure (either
+    <a href="#deployment-procedure---manual-method">manual method</a> or using
+    <a href="#deployment-procedure-using-ansible">Ansible Playbook</a>).</p>
+</li>
+<li>
+<p>Write to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#109;&#121;&#64;&#108;&#105;&#115;&#116;&#115;&#46;&#99;&#97;&#114;&#112;&#101;&#110;&#116;&#114;&#105;&#101;&#115;&#46;&#111;&#114;&#103;">&#97;&#109;&#121;&#64;&#108;&#105;&#115;&#116;&#115;&#46;&#99;&#97;&#114;&#112;&#101;&#110;&#116;&#114;&#105;&#101;&#115;&#46;&#111;&#114;&#103;</a> mailing list.
+    The suggested subject of the new thread is "[AMY] New release v2.X.Y".</p>
+</li>
+</ol>
+<h2 id="release-procedure">Release Procedure</h2>
+<p>We assume that you want to release AMY v2.X.Y.</p>
+<p>Execute the following commands on your local machine, not production.</p>
+<ol>
+<li>
+<p>Move to AMY root directory (the one with <code>manage.py</code> file) using <code>cd</code> command.</p>
+</li>
+<li>
+<p>Make sure you have configured repositories:</p>
+<ul>
+<li><code>origin</code> for your repository on GitHub</li>
+<li><code>upstream</code> for <a href="https://github.com/carpentries/amy"><code>carpentries/amy</code> repo on GitHub</a></li>
+</ul>
+<p>For example, this is the correct configuration for <code>chrismedrela</code>:</p>
+<pre><code>$ git remote -v
+origin  git@github.com:chrismedrela/amy.git (fetch)
+origin  git@github.com:chrismedrela/amy.git (push)
+upstream    git@github.com:carpentries/amy.git (fetch)
+upstream    git@github.com:carpentries/amy.git (push)
+</code></pre>
+</li>
+<li>
+<p>Make sure your local <code>develop</code> and <code>master</code> branches are up to date:</p>
+<pre><code>$ git checkout develop
+$ git pull upstream develop
+$ git push origin develop
+
+$ git checkout master
+$ git pull upstream master
+$ git push origin master
+</code></pre>
+<p>Pushes to your <code>origin</code> remote are optional.</p>
+</li>
+<li>
+<p>Define which version you're going to release (replace X and Y with correct numbers):</p>
+<pre><code>$ AMY_CURRENT=v2.X.Y-dev  # this needs to correspond to what you have in amy/workshops/__init__.py and package.json
+$ AMY_VERSION=v2.X.Y
+$ AMY_NEXT_VERSION=v2.X+1.0-dev
+</code></pre>
+</li>
+<li>
+<p>Merge <code>develop</code> into <code>master</code> branch (be careful, as there are sometimes conflicts that need to be manually resolved):</p>
+<pre><code>$ git checkout master
+$ git merge --no-ff develop
+</code></pre>
+</li>
+<li>
+<p>Bump version on <code>master</code>:</p>
+<pre><code>$ make bumpversion CURRENT=$AMY_CURRENT NEXT=$AMY_VERSION
+$ git add amy/workshops/__init__.py package.json
+$ git commit -m "Bumping version to $AMY_VERSION"
+</code></pre>
+</li>
+<li>
+<p>Just to be safe, run tests:</p>
+<pre><code>$ make test
+</code></pre>
+</li>
+<li>
+<p>Tag a release.</p>
+<pre><code>$ git tag -a "$AMY_VERSION" -s -m "AMY release $AMY_VERSION"
+</code></pre>
+<p>Omit <code>-s</code> flag if you cannot create signed tags.
+See <a href="https://git-scm.com/book/tr/v2/Git-Tools-Signing-Your-Work">Git documentation</a> for more info about signed tags.</p>
+</li>
+<li>
+<p>Push <code>master</code> and the new tag everywhere:</p>
+<pre><code>$ git push origin master --tags
+$ git push upstream master --tags
+</code></pre>
+</li>
+<li>
+<p>Bump version on <code>develop</code>:</p>
+<pre><code>$ git checkout develop
+$ make bumpversion CURRENT=$AMY_CURRENT NEXT=$AMY_NEXT_VERSION
+$ git add amy/workshops/__init__.py package.json
+$ git commit -m "Bumping version to $AMY_NEXT_VERSION"
+</code></pre>
+<p>Skip this step if development version doesn't change, for example during
+minor version development cycle (<code>v2.X.0-dev</code>) you're releasing a patch
+(<code>v2.X-1.Y</code>).</p>
+</li>
+<li>
+<p>And push it everywhere:</p>
+<pre><code>$ git push upstream develop
+$ git push origin develop
+</code></pre>
+</li>
+</ol>
+<h2 id="deployment-procedure-manual-method">Deployment Procedure - manual method</h2>
+<ol>
+<li>
+<p>Log into production:</p>
+<pre><code>$ ssh amy@amy.carpentries.org
+</code></pre>
+<p>All the following commands will be executed on production, not your local machine.</p>
+</li>
+<li>
+<p>Activate virtualenv:</p>
+<pre><code>$ source ~/amy_site/venv/bin/activate
+</code></pre>
+</li>
+<li>
+<p>Go to project directory:</p>
+<pre><code>$ cd amy_site/amy
+</code></pre>
+</li>
+<li>
+<p>Check environment variables:</p>
+<pre><code>$ cat ../uwsgi_env
+</code></pre>
+<p>Update them if necessary:</p>
+<pre><code>$ vi ../uwsgi_env
+</code></pre>
+</li>
+<li>
+<p>Stop server for maintenance:</p>
+<pre><code>$ sudo stop uwsgi-emperor
+</code></pre>
+</li>
+<li>
+<p>Go to <a href="https://amy.software-carpentry.org/workshops/admin-dashboard/">admin dashboard</a> and make sure that maintenance page is displayed.</p>
+</li>
+<li>
+<p>Create a compressed local database backup (through special backup function in SQLite client):</p>
+<pre><code>$ sqlite3 db.sqlite3 ".backup DB_backups/backup-before-upgrade-to-v2.X.Y.sqlite3"
+$ gzip DB_backups/backup-before-upgrade-to-v2.X.Y.sqlite3
+</code></pre>
+<p>Do not use <code>$AMY_VERSION</code> environment variable because it's not defined here.</p>
+</li>
+<li>
+<p>Fetch newer AMY source code:</p>
+<pre><code>$ git fetch
+$ git checkout tags/v2.X.Y  # Python files updated
+</code></pre>
+</li>
+<li>
+<p>Update dependencies:</p>
+<pre><code>$ make upgrade
+</code></pre>
+</li>
+<li>
+<p>Test migrations:</p>
+<pre><code>$ sqlite3 db.sqlite3 ".backup migration-test.sqlite3"
+$ DATABASE_URL=sqlite:///migration-test.sqlite3 ./manage.py migrate
+$ rm migration-test.sqlite3
+</code></pre>
+</li>
+<li>
+<p>Migrate production database (<code>db.sqlite3</code>):</p>
+<pre><code>$ ./manage.py migrate
+</code></pre>
+</li>
+<li>
+<p>Update static files:</p>
+<pre><code>$ ./manage.py collectstatic --noinput
+</code></pre>
+</li>
+<li>
+<p>Execute any additional stuff like one-off commands.
+    If necessary, load environment variables before launching one-off commands.</p>
+<pre><code>$ source ../uwsgi_env
+</code></pre>
+</li>
+<li>
+<p>Start server again:</p>
+<pre><code>$ sudo start uwsgi-emperor
+</code></pre>
+</li>
+<li>
+<p>Make sure in your browser that AMY works by loading <a href="https://amy.software-carpentry.org/workshops/admin-dashboard/">admin dashboard</a>.</p>
+</li>
+<li>
+<p>Log out production:</p>
+<pre><code>$ exit
+</code></pre>
+</li>
+</ol>
+<h2 id="deployment-procedure-using-ansible">Deployment procedure using Ansible</h2>
+<p>If you have access to Ansible playbook files for AMY, you can automate
+deployment.</p>
+<p><strong>CAUTION:</strong> only use this method if you don't have to invoke any custom
+methods when the server is off for upgrade.</p>
+<ol>
+<li>
+<p>Ensure you have <code>ansible-playbook</code> command available:</p>
+<pre><code>$ ansible-playbook --version
+</code></pre>
+</li>
+<li>
+<p>Create an inventory file <code>production</code> containing production server address:</p>
+<pre><code>[all:vars]
+env=production
+
+[webservers]
+amy.carpentries.org
+</code></pre>
+<p>The first group <code>all:vars</code> sets <code>production</code> variable group. You can
+further tweak them in <code>env_vars/production.yml</code>.</p>
+</li>
+<li>
+<p>Set correct git tag in <code>env_vars/production.yml</code>:</p>
+<pre><code>...
+#===&gt; Git settings only for production
+fetch_git_tag: yes
+git_tag: tags/v2.4.0
+...
+</code></pre>
+<p>Replace <code>v2.4.0</code> with the version you want to fetch (e.g. <code>v2.5.0</code>).</p>
+</li>
+<li>
+<p>Review other variables in <code>env_vars/production.yml</code> and update them if
+   required.</p>
+</li>
+<li>
+<p>Make sure your public SSH key is added to the <code>~/.ssh/authorized_keys</code> file
+   on destination server <code>amy.carpentries.org</code>.</p>
+</li>
+<li>
+<p>Optional: test provisioning on a local Vagrant machine</p>
+<pre><code>$ vagrant up --provision
+</code></pre>
+</li>
+<li>
+<p>Run Ansible provisioning:</p>
+<pre><code>$ ansible-playbook --inventory=production --user=amy -vv
+</code></pre>
+<p>The last switch <code>-vv</code> enables verbosity, which helps in debugging if errors
+occur.</p>
+</li>
+<li>
+<p>Check production website - it should be running, and there should be a
+   version number (e.g. <code>v2.5.0</code>) in the footer.</p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../amy_database_structure/" class="btn btn-neutral float-right" title="Database Structure">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../user_guide/" class="btn btn-neutral" title="User Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../user_guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../amy_database_structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

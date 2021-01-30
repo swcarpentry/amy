@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>AMY bugfix release v1.5.2 and bug postmortem - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AMY bugfix release v1.5.2 and bug postmortem";
+    var mkdocs_page_input_path = "releases/v1.5.2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="..">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AMY bugfix release v1.5.2 and bug postmortem</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/releases/v1.5.2.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="amy-bugfix-release-v152-and-bug-postmortem">AMY bugfix release v1.5.2 and bug postmortem</h1>
+<p><em>This is an investigation story by <a href="https://github.com/pbanaszkiewicz">Piotr</a>.</em></p>
+<p>24 hours ago, Maneesha Sane
+<a href="https://github.com/swcarpentry/amy/issues/744">noticed and informed</a> on GitHub
+that one of the tags in AMY is missing.</p>
+<p>This observation led to an investigation on the servers and eventually to fix
+for a critical bug that caused the data loss.</p>
+<p>But before we jump into sysadmin work…</p>
+<h2 id="what-is-a-tag-in-amy-terms">What is a "tag" in AMY terms?</h2>
+<p>A tag is label that we give to various workshops. For example, all Software
+Carpentry workshops will have <code>SWC</code> tag, and all Data Carpentry workshops will
+have <code>DC</code> tag.</p>
+<p>There are more labels we use, and the one that went missing was <code>DC</code>.</p>
+<p>One event can have between zero and all the tags we have in the system, which
+means it's a many-to-many relationship between events and tags. This type of
+relationship requires additional intermediate table in the database.</p>
+<p>Contents from that table were missing because they were removed with removal
+of the <code>DC</code> tag.</p>
+<h2 id="investigation">Investigation</h2>
+<p>I started the investigation by narrowing timespan where the event, that led to
+data loss, occurred.</p>
+<p>Then I followed by reading WWW server access logs to find out what happened in
+that timespan in hope I could find the bug.</p>
+<p>After narrowing list of suspects, I was able to reproduce the bug.</p>
+<p>Finally I retrieved the lost data from the most recent backup that still had
+it.</p>
+<h3 id="ways-to-remove-tags-from-amy">Ways to remove tags from AMY</h3>
+<p>There's no interface for removing tags other than Django's auto-generated admin
+interface; only a couple of people have access to it.</p>
+<p>So the data loss was either human error or it was caused by code bug. This
+conclusion helped me define what I should be looking for in the WWW server log.</p>
+<h3 id="narrowing-event-occurence-timespan">Narrowing event occurence timespan</h3>
+<p>AMY's being backed-up by multiple systems; I logged into each of them and run
+multiple SQL queries on different databases to find out which backup had the
+<code>DC</code> tag and was the newest.</p>
+<p>It turned out that backup from 2016-04-06 17:00 UTC-4 was the most recent still
+with the <code>DC</code> tag.</p>
+<p>In the meantime I was fighting timezone correction… Our backup systems are in
+different datacenters and were running on different timezones.</p>
+<h3 id="reading-access-log">Reading access log</h3>
+<p>First thing I checked in the access log is if anyone was using the admin panel
+to remove the tag. Unfortunately this possibility was quickly ruled out; so
+the loss was caused by code bug.</p>
+<p>However, after reading the log no action stood out.</p>
+<p>Short, important side story: Software Carpentry website rebuilds every 30
+minutes. Each rebuild is shown in the log by multiple requests to AMY's API:</p>
+<p>{% highlight nginx %}
+[…] GET /api/v1/export/badges.yaml =&gt; generated 69122 bytes […]
+[…] GET /api/v1/export/instructors.yaml =&gt; generated 50488 bytes […]
+[…] GET /api/v1/events/published.yaml?tag=SWC =&gt; generated 231344 bytes […]
+[…] GET /api/v1/events/published.yaml?tag=DC =&gt; generated 17806 bytes […]
+[…] GET /api/v1/events/published.yaml?tag=TTT =&gt; generated 7879 bytes […]
+{% endhighlight %}</p>
+<p>Website grabs published events tagged by <code>SWC</code>, <code>DC</code> and <code>TTT</code> tags. This
+sequence of requests repeats every 30 minutes.</p>
+<p>After reading the log over and over I noticed that two consecutive calls to
+<code>/api/v1/events/published.yaml?tag=DC</code> yielded results of very different
+response lengths:</p>
+<p>{% highlight nginx %}
+[…] [Wed Apr  6 15:01:11 2016] GET /api/v1/events/published.yaml?tag=DC =&gt; generated 17806 bytes […]
+[... many more requests ...]
+[…] [Wed Apr  6 15:30:10 2016] GET /api/v1/events/published.yaml?tag=DC =&gt; generated 261521 bytes […]
+{% endhighlight %}</p>
+<p>Apparently then the DC tag disappeared, the API started returning all the
+published events, no matter if they were tagged <code>SWC</code> or something else.</p>
+<p>This was a clear indication that the <code>DC</code> tag disappeared between 15:01 and
+15:30.</p>
+<p>That timespan doesn't look like 17:00. Timezones... programmer's nightmare.</p>
+<h3 id="suspects">Suspects</h3>
+<p>There was some user activity in this 30-minutes long window and one thing
+caught my eye:</p>
+<p>{% highlight nginx %}
+[…] POST /workshops/events/merge?event_a_0=2016-05-06-RDAP16-Atlanta&amp;event_b_0=2016-05-06-asist […]
+{% endhighlight %}</p>
+<p>(The actual URL was slightly changed to remove unnecessary information.)</p>
+<p>This was a call to event merge functionality: someone wanted to merge
+workshops <code>2016-05-06-RDAP16-Atlanta</code> and <code>2016-05-06-asist</code>.</p>
+<p>{:.message}
+<em>Short side note</em>: merge functionality allows user to use more advanced
+strategy for merge; one can select which properties (or fields) in the final
+event should be used from event A (<code>2016-05-06-RDAP16-Atlanta</code> in our example)
+and which should be from event B (<code>2016-05-06-asist</code>). Additionally in case of
+event's tags it's possible to combine them from both base events.</p>
+<p>I started testing different strategies. I had a feeling that the bug had
+something to do with strategy for event tags. :)</p>
+<p>Finally I reproduced the bug by using following strategy:</p>
+<ul>
+<li>base event: <code>2016-05-06-RDAP16-Atlanta</code> (event A)</li>
+<li>tags: from event B.</li>
+</ul>
+<h3 id="data-retrieval">Data retrieval</h3>
+<p>At that point I decided to retrieve the lost data using SQL import/export
+functionality from the optimal (newest &amp; containing the lost data) backup found
+earlier.</p>
+<h3 id="bug">Bug</h3>
+<p>The only code used in event merge functionality that would trigger accidental
+removal is:</p>
+<p>{% highlight python %}
+            if value == 'obj_a' and manager != related_a:
+                manager.all().delete()
+                manager.add(*list(related_a.all()))</p>
+<pre><code>        elif value == 'obj_b' and manager != related_b:
+            manager.all().delete()
+            manager.add(*list(related_b.all()))
+</code></pre>
+<p>{% endhighlight %}</p>
+<p>This code is used for substituting related objects (tags in our case). It works
+like this:</p>
+<blockquote>
+<p>if some field's strategy is to switch to objects from the other event, then
+remove all currently assigned objects and add objects from the other event's
+field.</p>
+</blockquote>
+<p>Translated into tags:</p>
+<blockquote>
+<p>if user wants to use event <code>2016-05-06-RDAP16-Atlanta</code> as base event, but
+keep tags from the other event (<code>2016-05-06-asist</code>) then remove current tags
+from base event and add tags from the other event.</p>
+</blockquote>
+<p>See what's going on here? Base event's tags were removed instead of being
+unassigned.</p>
+<h4 id="django-related-manager-and-assignments">Django: related manager and assignments</h4>
+<p>In this section I'm going to talk about how relations work and if they can be
+unassigned instead of being removed.</p>
+<p>For many-to-many relationships (e.g. multiple events can be assigned multiple
+tags) Django creates an intermediate table that stores assignments. In this
+case, unassigning event from tag is as simple as removing that stored
+assignment from the intermediate table.</p>
+<p>For one-to-many relationships (e.g. multiple events can have the same
+organizer) there's no need for additional table; storing the organizer looks
+like <code>event.organizer = SomeOrganizer</code>.</p>
+<p>In case of the one-to-many relationships we can unassign the event from
+<code>SomeOrganizer</code> if and only if <code>event.organizer</code> field can store <code>NULL</code> value.
+If it cannot, then we have to remove the event.</p>
+<p>So the bug existed because the case of unassignment was not taken into account
+– only removal of related objects was accounted for.</p>
+<h3 id="fix-need-to-find-out-when-we-can-unassign">Fix: need to find out when we can unassign</h3>
+<p>Long story short: in Django only related manager with <code>.clear</code> method can
+unassign; if this method is not present then the only option is removal.</p>
+<p>So fixed code looks like this (minus the comments):</p>
+<p>{% highlight python %}
+            if value == 'obj_a' and manager != related_a:
+                if hasattr(manager, 'clear'):
+                    manager.clear()
+                else:
+                    manager.all().delete()
+                manager.set(list(related_a.all()))</p>
+<pre><code>        elif value == 'obj_b' and manager != related_b:
+            if hasattr(manager, 'clear'):
+                manager.clear()
+            else:
+                manager.all().delete()
+            manager.set(list(related_b.all()))
+</code></pre>
+<p>{% endhighlight %}</p>
+<p>(Yes, it probably should use <code>try - except</code> block instead of <code>hasattr</code>; pull
+request's welcome!)</p>
+<h2 id="final-words">Final words</h2>
+<p>All in all, I feel good about this bug; if anything, I'd like eliminate the
+errorneous timezone arithmetics.</p>
+<p>Also all backup mechanics and logging worked really nice.</p>
+<p>As a result of investigation described above, the bug and the solution to it
+last night I released AMY <a href="https://github.com/swcarpentry/amy/milestones/v1.5.2">v1.5.2</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

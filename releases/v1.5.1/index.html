@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>AMY release v1.5.1 - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AMY release v1.5.1";
+    var mkdocs_page_input_path = "releases/v1.5.1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sending_mails/">Sending Mails</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="..">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AMY release v1.5.1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/releases/v1.5.1.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="amy-release-v151">AMY release v1.5.1</h1>
+<p>This past month we had a number of submissions from prospect GSOC'16 students
+(yay!) and, for the first time, number of bugs fixed exceeded number of new
+enhancements.</p>
+<p>Since the number of new features is small, we decided to release a minor version
+(<a href="https://github.com/swcarpentry/amy/milestones/v1.5.1">v1.5.1</a>).</p>
+<h2 id="contributions-by-gsoc-students">Contributions by GSOC students</h2>
+<p>March 2016 held GSOC'16 applications period for students. We had a lot of
+students this year and we encouraged them to take a look at AMY and maybe fix
+something.  This resulted in a number of good contributions.</p>
+<h2 id="new-features">New features</h2>
+<p>Starting with new features since there's so few of them:</p>
+<ul>
+<li><a href="https://github.com/gvwilson">Greg</a> extended the <code>check_certificates.py</code> command to additionally
+  return events people participated in</li>
+<li><a href="https://github.com/shubhsingh594">Shubham Singh</a> added "Notes" field to instructor profile update form</li>
+<li><a href="https://github.com/shubhsingh594">Shubham Singh</a> added new tag "hackaton"</li>
+<li><a href="https://github.com/gvwilson">Greg</a> removed command <code>check_badges.py</code></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> enabled autogeneration of user's username after they're added to the
+  database</li>
+<li><a href="https://github.com/gvwilson">Greg</a> added link to Privacy Policy in the footer.</li>
+</ul>
+<h2 id="bug-fixes">Bug fixes</h2>
+<ul>
+<li><a href="https://github.com/nikhilweee">Nikhil Verma</a> found and fixed "List duplicates" page error when no
+  duplicates existed</li>
+<li><a href="https://github.com/chrismedrela">Chris Medrela</a> found and fixed 404 page for revision that didn't exist</li>
+<li><a href="https://github.com/gvwilson">Greg</a> fixed <code>NameError</code> in <code>check_certificates.py</code></li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed a 500 error appearing when user submitted incomplete form used for
+  matching people's names</li>
+<li>Maneesha Sane fixed minimal number of instructors required in our workshop
+  request form</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed API renderers (CSV, YAML) not iterating generators but displaying
+  their textual representations</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed instructors-num-taught report to include people's names</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed a small typo in the name of post-workshop survey for instructors (it
+  was called "pre")</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> made the emails case-insensitive</li>
+<li><a href="https://github.com/pbanaszkiewicz">Piotr</a> fixed some 500 errors related to event importing.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

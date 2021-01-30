@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Sending Mails - AMY documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sending Mails";
+    var mkdocs_page_input_path = "sending_mails.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AMY documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../user_guide/">User Guide</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../procedures/">Procedures</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../amy_database_structure/">Database Structure</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sending Mails</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#command">Command</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sending">Sending</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#unix-mail-command">UNIX mail command</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#django-mailing-system">Django mailing system</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Design</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/">Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/database_models/">Database Models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/template_hierarchy/">Template Hierarchy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/server_infrastructure/">Server Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../releases">Releases</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AMY documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Sending Mails</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/carpentries/amy/edit/master/docs/sending_mails.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sending-mails">Sending mails</h1>
+<h2 id="command">Command</h2>
+<p>It's possible to send annual "check your AMY data" mail to all instructors with
+following command: <code>./manage.py instructor_activity</code>.</p>
+<h2 id="parameters">Parameters</h2>
+<p>This command uses optional arguments:</p>
+<p><code>--send-out-for-real</code>
+: You need to use this to <em>really</em> send the emails.</p>
+<p><code>--no-may-contact-only</code>
+: By default, the command only send mails to people who agreed to receive them
+(<code>may_contact == True</code>).  Setting this argument, the command will mail all of
+our instructors.</p>
+<p><code>--django-mailing</code>
+: This switch changes underlying sending mechanism. By default it uses <code>mail</code>
+UNIX command.  See <a href="#sending">Sending</a> for more information.</p>
+<p><code>-s SENDER</code>
+<code>--sender SENDER</code>
+: Set "From: " field value.  Default is <code>workshops@carpentries.org</code>.</p>
+<h2 id="sending">Sending</h2>
+<p>There are two mechanisms that <code>instructor_activity</code> can use.</p>
+<h3 id="unix-mail-command">UNIX <code>mail</code> command</h3>
+<p>The way we use this command:</p>
+<p><code>mail -s "{subject}" -r {sender} {recipient} &lt; {message}</code></p>
+<h3 id="django-mailing-system">Django mailing system</h3>
+<p>Django requires setting some envvars in order to send emails.</p>
+<ul>
+<li><code>AMY_DEBUG=false</code>: required in order to send emails not to <code>/dev/null</code></li>
+<li><code>AMY_SECRET_KEY</code>: probably must have any string value</li>
+<li><code>AMY_RECAPTCHA_PUBLIC_KEY</code>: must be present when not in debugging mode</li>
+<li><code>AMY_RECAPTCHA_PRIVATE_KEY</code>: must be present when not in debugging mode</li>
+<li><code>AMY_EMAIL_HOST</code>: SMTP server address</li>
+<li><code>AMY_EMAIL_HOST_USER</code>: SMTP user</li>
+<li><code>AMY_EMAIL_HOST_PASSWORD</code>: SMTP password</li>
+<li><code>AMY_EMAIL_PORT=587</code>: default port for TLS SMTP</li>
+<li><code>AMY_EMAIL_USE_TLS='true'</code></li>
+</ul>
+<p>Example usage:</p>
+<pre><code class="language-bash">AMY_SECRET_KEY='asdasdasd' AMY_DEBUG=false \
+AMY_RECAPTCHA_PUBLIC_KEY='asdasdasd' AMY_RECAPTCHA_PRIVATE_KEY='asdasdasd' \
+AMY_EMAIL_HOST='smtp.gmail.com' \
+AMY_EMAIL_HOST_USER='amy-noreply@gmail.com' \
+AMY_EMAIL_HOST_PASSWORD='a very hard password' \
+AMY_EMAIL_PORT=587 AMY_EMAIL_USE_TLS='true' \
+./manage.py instructor_activity --django-mailing --send-out-for-real
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../design/" class="btn btn-neutral float-right" title="Design">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../amy_database_structure/" class="btn btn-neutral" title="Database Structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/carpentries/amy/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../amy_database_structure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../design/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
